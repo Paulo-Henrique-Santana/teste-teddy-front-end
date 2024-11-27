@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ModalFormClienteComponent } from '../../components/modal-form-cliente/modal-form-cliente.component';
 
 @Component({
   selector: 'app-clientes',
   standalone: true,
-  imports: [],
+  imports: [ModalFormClienteComponent],
   templateUrl: './clientes.component.html',
   styleUrl: './clientes.component.scss'
 })

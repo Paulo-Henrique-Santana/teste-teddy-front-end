@@ -1,0 +1,73 @@
+@use "../../../styles/variables.scss" as variaveis;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  .modal {
+    position: relative;
+
+    background-color: variaveis.$cor-de-fundo-primaria;
+
+    padding: 1.2rem;
+    border-radius: variaveis.$border-radius-padrao;
+
+    width: 100%;
+    max-width: 400px;
+
+    .titulo {
+      display: block;
+
+      font-size: 16px;
+      font-weight: 700;
+
+      margin-bottom: 1rem;
+    }
+
+    .botao-fechar {
+      width: 20px;
+      height: 20px;
+
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    input {
+      height: 40px;
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.8rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 1.1rem;
+      }
+
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+
+    .botao-primario {
+      height: 40px;
+
+      font-size: 14px;
+    }
+    
+  }
+}
