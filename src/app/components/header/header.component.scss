@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #ffffff;
+
+  height: 100px;
+  width: 100%;
+
+  box-shadow: 0 2px 2px 0 #0000001a;
+
+  position: absolute;
+
+  .icone-menu {
+    width: 24px;
+    height: 20px;
+    top: 40px;
+    left: 50px;
+
+    position: absolute;
+  }
+
+  .logo-teddy {
+    width: 100px;
+    height: 48.98px;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    font-size: 16px;
+    line-height: 19.36px;
+
+    a:hover,
+    a.ativo {
+      color: #ec6724;
+    }
+
+    a.ativo {
+      text-decoration-line: underline;
+      text-underline-position: from-font;
+    }
+  }
+
+  .nome-usuario {
+    font-weight: 700;
+  }
+}
