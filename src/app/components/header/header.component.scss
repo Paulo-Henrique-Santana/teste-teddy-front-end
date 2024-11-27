@@ -1,3 +1,5 @@
+@use '../../../styles/variables.scss' as variables;
+
 header {
   display: flex;
   align-items: center;
@@ -9,8 +11,7 @@ header {
   width: 100%;
 
   box-shadow: 0 2px 2px 0 #0000001a;
-
-  position: absolute;
+  margin-bottom: 2rem;
 
   .icone-menu {
     width: 24px;
@@ -34,7 +35,7 @@ header {
 
     a:hover,
     a.ativo {
-      color: #ec6724;
+      color: variables.$laranja;
     }
 
     a.ativo {

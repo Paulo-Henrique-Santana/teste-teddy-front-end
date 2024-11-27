@@ -1,3 +1,5 @@
+@use '../../../styles/variables.scss' as variaveis;
+
 main {
   display: flex;
   align-items: center;
@@ -48,7 +50,7 @@ h1 {
   
   button {
     padding: 1rem;
-    background-color: #EC6724;
+    background-color: variaveis.$laranja;
     border-radius: 4px;
   
     color: #FFFFFF;

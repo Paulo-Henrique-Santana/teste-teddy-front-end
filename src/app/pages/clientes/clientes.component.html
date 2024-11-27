@@ -1,0 +1,35 @@
+<main>
+  <div class="paginacao-topo">
+    <span>
+      <span class="numero-qtd-clientes">16</span> clientes encontrados:
+    </span>
+
+    <div>
+      <label for="qtd-por-pagina">
+        Clientes por página:
+      </label>
+      <select name="qtd-por-pagina" id="qtd-por-pagina" >
+        <option value="16">16</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="clientes">
+    @for (item of items; track $index) {
+      <div class="card-cliente">
+        <span class="nome-cliente">Eduardo</span>
+        <span>Salário: R$3.500,00</span>
+        <span>Empresa: R$120.000,00</span>
+  
+        <div class="acoes">
+          <button><img src="/imgs/adicionar.png" alt="Selecionar Cliente"></button>
+          <button><img src="/imgs/editar.png" alt="Editar Cliente"></button>
+          <button><img src="/imgs/deletar.png" alt="Deletar Cliente"></button>
+        </div>
+      </div>
+    }
+  </div>
+  
+  <button class="botao-criar-cliente">Criar cliente</button>
+  
+</main>

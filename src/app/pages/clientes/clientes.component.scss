@@ -1,0 +1,76 @@
+@use "../../../styles/variables.scss" as variaveis;
+
+:host {
+  display: flex;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+main {
+  width: 100vw;
+  max-width: 1200px;
+
+  .paginacao-topo {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+
+    font-size: 18px;
+
+    .numero-qtd-clientes {
+      font-weight: 700;
+    }
+  }
+
+  .clientes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+
+    margin-bottom: 1.5rem;
+
+    .card-cliente {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      padding: 0.8rem;
+      border-radius: 4px;
+
+      background-color: #ffffff;
+      box-shadow: 0px 0px 4px 0px #0000001a;
+
+      text-align: center;
+      font-size: 14px;
+
+      .nome-cliente {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .acoes {
+        display: flex;
+        justify-content: space-between;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .botao-criar-cliente {
+    width: 100%;
+    height: 40px;
+
+    border-radius: 4px;
+    border: 2px solid variaveis.$laranja;
+    
+    color: variaveis.$laranja;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
