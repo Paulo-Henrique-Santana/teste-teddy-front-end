@@ -1,8 +1,15 @@
 <main>
   <h1>Olá, seja bem-vindo!</h1>
 
-  <form class="form-entrar">
-    <input class="campo-nome" type="text" placeholder="Digite o seu nome:" />
-    <button class="botao-primario">Entrar</button>
+  <form class="form-entrar" #formName="ngForm" (ngSubmit)="onSubmit(formName)">
+    <input
+      class="campo-nome"
+      type="text"
+      placeholder="Digite o seu nome:"
+      ngModel
+      name="nome"
+      #nome="ngModel"
+    />
+    <button class="botao-primario" [disabled]="!nome.value">Entrar</button>
   </form>
 </main>

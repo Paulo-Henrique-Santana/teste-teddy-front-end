@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  router = inject(Router);
+  route = inject(ActivatedRoute);
 
+  onSubmit(form: NgForm) {
+    this.router.navigate(['/main/clientes'], { relativeTo: this.route });
+  }
 }
