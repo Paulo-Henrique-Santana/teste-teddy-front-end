@@ -14,6 +14,7 @@ export class HomeComponent {
   route = inject(ActivatedRoute);
 
   onSubmit(form: NgForm) {
+    sessionStorage.setItem('user', form.value.nome);
     this.router.navigate(['/main/clientes'], { relativeTo: this.route });
   }
 }
