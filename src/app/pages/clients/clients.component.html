@@ -15,7 +15,7 @@
   </div>
 
   <div class="clientes">
-    @for (item of items; track $index) {
+    @for (client of (clients$ | async)!; track $index) {
       <div class="card-cliente">
         <span class="nome-cliente">Eduardo</span>
         <span>Salário: R$3.500,00</span>
