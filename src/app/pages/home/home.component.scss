@@ -36,10 +36,5 @@ h1 {
     font-size: 24px;
 
     padding: 1rem;
-
-    &:disabled {
-      opacity: 25%;
-      cursor: not-allowed;
-    }
   }
 }

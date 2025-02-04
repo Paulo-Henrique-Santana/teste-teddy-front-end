@@ -15,7 +15,7 @@
   </div>
 
   <div class="clientes">
-    @for (client of (clients$ | async)!; track $index) {
+    @for (client of clients; track $index) {
       <app-card-client
         [name]="client.name"
         [salary]="client.salary"
@@ -24,7 +24,7 @@
     }
   </div>
   
-  <button class="botao-criar-cliente">Criar cliente</button>
+  <button class="botao-criar-cliente" (click)="onClickAddClient()">Criar cliente</button>
 </main>
 
-<app-modal-form-cliente></app-modal-form-cliente>
+<app-modal-form-cliente [openModal]="openModalAddClient" (add)="onAddClient($event)"></app-modal-form-cliente>

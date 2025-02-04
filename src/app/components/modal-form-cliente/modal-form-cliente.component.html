@@ -1,17 +1,18 @@
-@if (modalAberto) {
+@if (openModal()) {
   <div class="container">
     <div class="modal">
       <span class="titulo">Criar cliente:</span>
     
-      <button class="botao-fechar" (click)="fecharModal()">
+      <button class="botao-fechar" (click)="closeModal()">
         <img src="/imgs/fechar.png" alt="Fechar Modal" />
       </button>
     
-      <form>
-        <input placeholder="Digite o nome:" />
-        <input placeholder="Digite o salário:" />
-        <input placeholder="Digite o valor da empresa:" />
-        <button class="botao-primario">Criar cliente</button>
+      <form [formGroup]="form" (submit)="onSubmitForm()">
+        <input placeholder="Digite o nome:" formControlName="name" />
+        <input type="number" placeholder="Digite o salário:" formControlName="salary" />
+        <input type="number" ngModel placeholder="Digite o valor da empresa:" formControlName="companyValue" />
+
+        <button class="botao-primario" [disabled]="form.invalid">Criar cliente</button>
       </form>
     </div>
   </div>

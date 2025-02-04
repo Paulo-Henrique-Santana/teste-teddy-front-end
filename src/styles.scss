@@ -50,3 +50,8 @@ input {
   color: #FFFFFF;
   font-weight: 700;
 }
+
+button:disabled {
+  opacity: 25%;
+  cursor: not-allowed;
+}
