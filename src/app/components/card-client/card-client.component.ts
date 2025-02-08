@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-client',
@@ -11,4 +11,6 @@ export class CardClientComponent {
   @Input({ required: true }) name!: string;
   @Input({ required: true }) salary!: number;
   @Input({ required: true }) companyValue!: number;
+
+  @Output('clickEdit') edit = new EventEmitter();
 }

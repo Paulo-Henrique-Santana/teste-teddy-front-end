@@ -5,18 +5,25 @@ import { environment } from '../../environments/environment.development';
 import { Client, ClientResponse } from '../models/client';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClientService {
   http = inject(HttpClient);
 
   private readonly url = `${environment.url}/clients`;
 
-  getAll(params: { page: number; pageSize: number }): Observable<ClientResponse> {
+  getAll(params: {
+    page: number;
+    pageSize: number;
+  }): Observable<ClientResponse> {
     return this.http.get<ClientResponse>(this.url, { params });
   }
 
   create(body: Client): Observable<Client> {
     return this.http.post<Client>(this.url, body);
+  }
+
+  update(body: Omit<Client, 'id'>, id: number) {
+    return this.http.put(`${this.url}/${id}`, body);
   }
 }

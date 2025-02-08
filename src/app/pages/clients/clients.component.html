@@ -5,10 +5,8 @@
     </span>
 
     <div>
-      <label for="qtd-por-pagina">
-        Clientes por página:
-      </label>
-      <select name="qtd-por-pagina" id="qtd-por-pagina" >
+      <label for="qtd-por-pagina"> Clientes por página: </label>
+      <select name="qtd-por-pagina" id="qtd-por-pagina">
         <option value="16">16</option>
       </select>
     </div>
@@ -16,15 +14,23 @@
 
   <div class="clientes">
     @for (client of clients; track $index) {
-      <app-card-client
-        [name]="client.name"
-        [salary]="client.salary"
-        [companyValue]="client.companyValue"
-      ></app-card-client>
+    <app-card-client
+      [name]="client.name"
+      [salary]="client.salary"
+      [companyValue]="client.companyValue"
+      (clickEdit)="onClickEdit(client)"
+    ></app-card-client>
     }
   </div>
-  
-  <button class="botao-criar-cliente" (click)="onClickAddClient()">Criar cliente</button>
+
+  <button class="botao-criar-cliente" (click)="onClickAddClient()">
+    Criar cliente
+  </button>
 </main>
 
-<app-modal-form-cliente [openModal]="openModalAddClient" (add)="onAddClient($event)"></app-modal-form-cliente>
+<app-modal-form-cliente
+  [openModal]="openModalFormClient"
+  [clientToEdit]="clientToEdit"
+  (add)="onAddClient($event)"
+  (edit)="onEditClient($event)"
+></app-modal-form-cliente>

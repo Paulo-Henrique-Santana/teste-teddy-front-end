@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardClientComponent } from '../../components/card-client/card-client.component';
 import { ModalFormClienteComponent } from '../../components/modal-form-cliente/modal-form-cliente.component';
@@ -20,7 +20,9 @@ export class ClientsComponent implements OnInit {
   page = 1;
   pageSize = 16;
 
-  openModalAddClient = signal(false);
+  openModalFormClient = signal(false);
+
+  clientToEdit: WritableSignal<Client | null> = signal(null);
 
   ngOnInit() {
     this.getClients();
@@ -44,7 +46,24 @@ export class ClientsComponent implements OnInit {
     });
   }
 
+  onEditClient($event: Client) {
+    this.clientService.update($event, $event.id).subscribe({
+      next: () => {
+        this.clients.forEach((client) => {
+          if (client.id === $event.id) {
+            Object.assign(client, $event);
+          }
+        });
+      },
+    });
+  }
+
   onClickAddClient() {
-    this.openModalAddClient.set(true);
+    this.openModalFormClient.set(true);
+  }
+
+  onClickEdit(client: Client) {
+    this.clientToEdit.set(client);
+    this.openModalFormClient.set(true);
   }
 }

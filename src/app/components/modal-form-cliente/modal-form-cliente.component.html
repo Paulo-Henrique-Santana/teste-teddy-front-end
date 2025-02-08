@@ -1,19 +1,29 @@
 @if (openModal()) {
-  <div class="container">
-    <div class="modal">
-      <span class="titulo">Criar cliente:</span>
-    
-      <button class="botao-fechar" (click)="closeModal()">
-        <img src="/imgs/fechar.png" alt="Fechar Modal" />
-      </button>
-    
-      <form [formGroup]="form" (submit)="onSubmitForm()">
-        <input placeholder="Digite o nome:" formControlName="name" />
-        <input type="number" placeholder="Digite o salário:" formControlName="salary" />
-        <input type="number" ngModel placeholder="Digite o valor da empresa:" formControlName="companyValue" />
+<div class="container">
+  <div class="modal">
+    <span class="titulo">{{ title }}:</span>
 
-        <button class="botao-primario" [disabled]="form.invalid">Criar cliente</button>
-      </form>
-    </div>
+    <button class="botao-fechar" (click)="closeModal()">
+      <img src="/imgs/fechar.png" alt="Fechar Modal" />
+    </button>
+
+    <form [formGroup]="form" (submit)="onSubmitForm()">
+      <input placeholder="Digite o nome:" formControlName="name" />
+      <input
+        type="number"
+        placeholder="Digite o salário:"
+        formControlName="salary"
+      />
+      <input
+        type="number"
+        placeholder="Digite o valor da empresa:"
+        formControlName="companyValue"
+      />
+
+      <button class="botao-primario" [disabled]="form.invalid">
+        {{ title }}
+      </button>
+    </form>
   </div>
+</div>
 }
