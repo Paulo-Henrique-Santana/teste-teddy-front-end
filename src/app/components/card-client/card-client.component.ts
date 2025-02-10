@@ -12,5 +12,6 @@ export class CardClientComponent {
   @Input({ required: true }) salary!: number;
   @Input({ required: true }) companyValue!: number;
 
-  @Output('clickEdit') edit = new EventEmitter();
+  @Output('clickEdit') editEvent = new EventEmitter();
+  @Output('clickDelete') deleteEvent = new EventEmitter();
 }

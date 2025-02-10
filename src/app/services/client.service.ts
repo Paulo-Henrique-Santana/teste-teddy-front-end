@@ -23,7 +23,11 @@ export class ClientService {
     return this.http.post<Client>(this.url, body);
   }
 
-  update(body: Omit<Client, 'id'>, id: number) {
+  update(body: Omit<Client, 'id'>, id: number): Observable<any> {
     return this.http.put(`${this.url}/${id}`, body);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

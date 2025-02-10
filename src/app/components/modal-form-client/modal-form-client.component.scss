@@ -1,0 +1,17 @@
+@use "../../../styles/variables.scss" as variaveis;
+
+input {
+  height: 40px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 0.8rem;
+  }
+
+  &:last-of-type {
+    margin-bottom: 1.1rem;
+  }
+
+  &::placeholder {
+    font-size: 16px;
+  }
+}

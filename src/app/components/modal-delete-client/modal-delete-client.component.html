@@ -1,0 +1,10 @@
+@if (client()) {
+<app-modal title="Excluir cliente:" (close)="closeModal()">
+  <p class="text">
+    Você está prestes a excluir o cliente:
+    <span class="name">{{ client()!.name }}</span>
+  </p>
+
+  <button class="botao-primario" (click)="onSubmit()">Excluir cliente</button>
+</app-modal>
+}

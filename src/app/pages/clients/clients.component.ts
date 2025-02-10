@@ -1,14 +1,26 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardClientComponent } from '../../components/card-client/card-client.component';
-import { ModalFormClienteComponent } from '../../components/modal-form-cliente/modal-form-cliente.component';
+import { ModalDeleteClientComponent } from '../../components/modal-delete-client/modal-delete-client.component';
+import { ModalFormClientComponent } from '../../components/modal-form-client/modal-form-client.component';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-clients',
   standalone: true,
-  imports: [ModalFormClienteComponent, FormsModule, CardClientComponent],
+  imports: [
+    ModalFormClientComponent,
+    FormsModule,
+    CardClientComponent,
+    ModalDeleteClientComponent,
+  ],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.scss',
 })
@@ -21,8 +33,9 @@ export class ClientsComponent implements OnInit {
   pageSize = 16;
 
   openModalFormClient = signal(false);
-
+  
   clientToEdit: WritableSignal<Client | null> = signal(null);
+  clientToDelete: WritableSignal<{ id: number; name: string } | null> = signal(null);
 
   ngOnInit() {
     this.getClients();
@@ -65,5 +78,19 @@ export class ClientsComponent implements OnInit {
   onClickEdit(client: Client) {
     this.clientToEdit.set(client);
     this.openModalFormClient.set(true);
+  }
+
+  onClickDelete(client: Client) {
+    this.clientToDelete.set(client);
+  }
+
+  onConfirmDelete(id: number) {
+    this.clientService.delete(id).subscribe({
+      next: () => {
+        this.clients = this.clients.filter((client) => 
+          client.id !== id
+        )
+      },
+    });
   }
 }

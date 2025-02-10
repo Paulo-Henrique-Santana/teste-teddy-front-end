@@ -15,15 +15,16 @@ import {
   Validators,
 } from '@angular/forms';
 import { Client } from '../../models/client';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
-  selector: 'app-modal-form-cliente',
+  selector: 'app-modal-form-client',
   standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './modal-form-cliente.component.html',
-  styleUrl: './modal-form-cliente.component.scss',
+  imports: [ReactiveFormsModule, ModalComponent],
+  templateUrl: './modal-form-client.component.html',
+  styleUrl: './modal-form-client.component.scss',
 })
-export class ModalFormClienteComponent {
+export class ModalFormClientComponent {
   @Input() clientToEdit: WritableSignal<Client | null> = signal(null);
   @Input({ required: true }) openModal!: WritableSignal<boolean>;
 

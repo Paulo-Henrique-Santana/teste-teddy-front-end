@@ -19,6 +19,7 @@
       [salary]="client.salary"
       [companyValue]="client.companyValue"
       (clickEdit)="onClickEdit(client)"
+      (clickDelete)="onClickDelete(client)"
     ></app-card-client>
     }
   </div>
@@ -28,9 +29,14 @@
   </button>
 </main>
 
-<app-modal-form-cliente
+<app-modal-form-client
   [openModal]="openModalFormClient"
   [clientToEdit]="clientToEdit"
   (add)="onAddClient($event)"
   (edit)="onEditClient($event)"
-></app-modal-form-cliente>
+></app-modal-form-client>
+
+<app-modal-delete-client
+  [client]="clientToDelete"
+  (confirm)="onConfirmDelete($event)"
+></app-modal-delete-client>

@@ -1,0 +1,21 @@
+@if (openModal()) {
+<app-modal [title]="title" (close)="closeModal()">
+  <form [formGroup]="form" (submit)="onSubmitForm()">
+    <input placeholder="Digite o nome:" formControlName="name" />
+    <input
+      type="number"
+      placeholder="Digite o salário:"
+      formControlName="salary"
+    />
+    <input
+      type="number"
+      placeholder="Digite o valor da empresa:"
+      formControlName="companyValue"
+    />
+
+    <button class="botao-primario" [disabled]="form.invalid">
+      {{ title }}
+    </button>
+  </form>
+</app-modal>
+}
