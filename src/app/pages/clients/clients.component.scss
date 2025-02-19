@@ -41,4 +41,10 @@ main {
     font-size: 14px;
     font-weight: 700;
   }
+
+  app-pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
 }

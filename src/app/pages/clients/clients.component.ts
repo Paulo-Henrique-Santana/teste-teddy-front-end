@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CardClientComponent } from '../../components/card-client/card-client.component';
 import { ModalDeleteClientComponent } from '../../components/modal-delete-client/modal-delete-client.component';
 import { ModalFormClientComponent } from '../../components/modal-form-client/modal-form-client.component';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
@@ -20,6 +21,7 @@ import { ClientService } from '../../services/client.service';
     FormsModule,
     CardClientComponent,
     ModalDeleteClientComponent,
+    PaginationComponent
   ],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.scss',
@@ -31,6 +33,7 @@ export class ClientsComponent implements OnInit {
 
   page = 1;
   pageSize = 16;
+  totalPages = 0;
 
   openModalFormClient = signal(false);
   
@@ -47,6 +50,7 @@ export class ClientsComponent implements OnInit {
     this.clientService.getAll(params).subscribe({
       next: (res) => {
         this.clients = res.items;
+        this.totalPages = Math.ceil(res.total / this.pageSize);
       },
     });
   }
@@ -92,5 +96,10 @@ export class ClientsComponent implements OnInit {
         )
       },
     });
+  }
+
+  onChangePage($event: number) {
+    this.page = $event;
+    this.getClients();
   }
 }

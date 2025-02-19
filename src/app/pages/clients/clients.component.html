@@ -1,11 +1,11 @@
 <main>
   <div class="paginacao-topo">
     <span>
-      <span class="numero-qtd-clientes">{{ clients.length }}</span> clientes encontrados:
+      <span class="numero-qtd-clientes">{{ pageSize * totalPages }}</span> clientes encontrados:
     </span>
 
     <div>
-      <label for="qtd-por-pagina"> Clientes por página: </label>
+      <label for="qtd-por-pagina">Clientes por página: </label>
       <select name="qtd-por-pagina" id="qtd-por-pagina">
         <option value="16">16</option>
       </select>
@@ -27,6 +27,8 @@
   <button class="botao-criar-cliente" (click)="onClickAddClient()">
     Criar cliente
   </button>
+
+  <app-pagination [totalPages]="totalPages" (change)="onChangePage($event)"></app-pagination>
 </main>
 
 <app-modal-form-client

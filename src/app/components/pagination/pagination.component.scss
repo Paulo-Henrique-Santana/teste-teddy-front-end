@@ -1,0 +1,18 @@
+@use "../../../styles/variables.scss" as variaveis;
+
+button {
+  font-weight: bold;
+  font-size: 14px;
+
+  margin: 0 0.1rem;
+  border-radius: 4px;
+
+  width: 35px;
+  height: 35px;
+
+
+  &.selected {
+    background-color: variaveis.$laranja;
+    color: white;
+  }
+}

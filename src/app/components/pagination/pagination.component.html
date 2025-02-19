@@ -1,0 +1,10 @@
+<nav>
+  @for (numberPage of buttons; track $index) {
+    <button 
+      [ngClass]="numberPage === selectedNumberPage ? 'selected' : ''"
+      (click)="onClick(numberPage)"  
+    >
+      {{ numberPage || '...' }}
+    </button>
+  }
+</nav>
