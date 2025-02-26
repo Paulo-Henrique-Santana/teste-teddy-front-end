@@ -23,7 +23,7 @@ export class ClientService {
     return this.http.post<Client>(this.url, body);
   }
 
-  update(body: Omit<Client, 'id'>, id: number): Observable<any> {
+  update(body: Partial<Client>, id: number): Observable<any> {
     return this.http.put(`${this.url}/${id}`, body);
   }
 

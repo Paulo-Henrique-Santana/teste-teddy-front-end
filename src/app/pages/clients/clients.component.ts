@@ -102,4 +102,16 @@ export class ClientsComponent implements OnInit {
     this.page = $event;
     this.getClients();
   }
+
+  editSelectedClient(id: number, selected: boolean) {
+    this.clientService.update({ selected }, id).subscribe({
+      next: () => {
+        this.clients.forEach((client) => {
+          if (client.id === id) {
+            client.selected = selected;
+          }
+        });
+      }
+    });
+  }
 }

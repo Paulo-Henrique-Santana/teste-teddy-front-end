@@ -18,8 +18,11 @@
       [name]="client.name"
       [salary]="client.salary"
       [companyValue]="client.companyValue"
-      (clickEdit)="onClickEdit(client)"
-      (clickDelete)="onClickDelete(client)"
+      [selected]="client.selected"
+      (edit)="onClickEdit(client)"
+      (delete)="onClickDelete(client)"
+      (select)="editSelectedClient(client.id, true)"
+      (unselect)="editSelectedClient(client.id, false)"
     ></app-card-client>
     }
   </div>

@@ -8,6 +8,7 @@ export interface Client {
   name: string;
   salary: number;
   companyValue: number;
+  selected: boolean;
 }
 
 export interface ClientResponse {

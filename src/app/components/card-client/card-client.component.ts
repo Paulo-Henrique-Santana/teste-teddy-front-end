@@ -11,7 +11,10 @@ export class CardClientComponent {
   @Input({ required: true }) name!: string;
   @Input({ required: true }) salary!: number;
   @Input({ required: true }) companyValue!: number;
+  @Input({ required: true }) selected!: boolean;
 
-  @Output('clickEdit') editEvent = new EventEmitter();
-  @Output('clickDelete') deleteEvent = new EventEmitter();
+  @Output('edit') editEvent = new EventEmitter();
+  @Output('delete') deleteEvent = new EventEmitter();
+  @Output('select') selectEvent = new EventEmitter();
+  @Output('unselect') unselectEvent = new EventEmitter();
 }
