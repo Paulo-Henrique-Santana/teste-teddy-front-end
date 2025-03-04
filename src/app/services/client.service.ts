@@ -8,13 +8,14 @@ import { Client, ClientResponse } from '../models/client';
   providedIn: 'root',
 })
 export class ClientService {
-  http = inject(HttpClient);
+  private http = inject(HttpClient);
 
   private readonly url = `${environment.url}/clients`;
 
   getAll(params: {
     page: number;
     pageSize: number;
+    selected?: boolean;
   }): Observable<ClientResponse> {
     return this.http.get<ClientResponse>(this.url, { params });
   }
@@ -29,5 +30,9 @@ export class ClientService {
 
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+
+  unselectAll() {
+    return this.http.patch(`${this.url}/unselect`, null);
   }
 }

@@ -30,6 +30,18 @@ main {
     margin-bottom: 1.5rem;
   }
 
+  .botao-criar-cliente {
+    width: 100%;
+    height: 40px;
+
+    border-radius: 4px;
+    border: 2px solid variaveis.$laranja;
+    
+    color: variaveis.$laranja;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
   app-pagination {
     margin-top: 1rem;
     display: flex;

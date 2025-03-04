@@ -1,0 +1,21 @@
+<main>
+  <strong>Clientes selecionados: </strong>
+
+  <div class="clientes">
+    @for (client of clients; track client.id) {
+    <app-card-client
+      [name]="client.name"
+      [salary]="client.salary"
+      [companyValue]="client.companyValue"
+      [selected]="client.selected"
+      (unselect)="unselectClient(client.id)"
+    ></app-card-client>
+    }
+  </div>
+
+  <button class="primary-button-page" (click)="unselectClients()">
+    Limpar clientes selecionados
+  </button>
+
+  <app-pagination [totalPages]="totalPages" (change)="onChangePage($event)"></app-pagination>
+</main>
