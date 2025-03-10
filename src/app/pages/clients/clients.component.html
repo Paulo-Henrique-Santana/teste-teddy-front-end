@@ -23,6 +23,7 @@
       (delete)="onClickDelete(client)"
       (select)="editSelectedClient(client.id, true)"
       (unselect)="editSelectedClient(client.id, false)"
+      [actions]="actionsClientCard"
     ></app-card-client>
     }
   </div>

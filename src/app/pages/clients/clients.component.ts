@@ -10,6 +10,7 @@ import { CardClientComponent } from '../../components/card-client/card-client.co
 import { ModalDeleteClientComponent } from '../../components/modal-delete-client/modal-delete-client.component';
 import { ModalFormClientComponent } from '../../components/modal-form-client/modal-form-client.component';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
+import { CardClientAction } from '../../models/card-client';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
@@ -39,6 +40,8 @@ export class ClientsComponent implements OnInit {
   
   clientToEdit: WritableSignal<Client | null> = signal(null);
   clientToDelete: WritableSignal<{ id: number; name: string } | null> = signal(null);
+
+  actionsClientCard: CardClientAction[] = ['select', 'edit', 'delete'];
 
   ngOnInit() {
     this.getClients();

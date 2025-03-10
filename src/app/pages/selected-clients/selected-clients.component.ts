@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CardClientComponent } from '../../components/card-client/card-client.component';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
+import { CardClientAction } from '../../models/card-client';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
@@ -19,6 +20,8 @@ export class SelectedClientsComponent implements OnInit {
   totalPages = 0;
 
   clients: Client[] = [];
+
+  actionsClientCard: CardClientAction[] = ['select'];
 
   ngOnInit() {
     this.getClients();
