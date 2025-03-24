@@ -1,7 +1,7 @@
 <main>
-  <strong>Clientes selecionados: </strong>
+  <h1 class="title">Clientes selecionados: </h1>
 
-  <div class="clientes">
+  <div class="clients">
     @for (client of clients; track client.id) {
     <app-card-client
       [name]="client.name"
