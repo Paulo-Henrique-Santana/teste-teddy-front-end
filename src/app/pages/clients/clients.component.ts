@@ -35,6 +35,7 @@ export class ClientsComponent implements OnInit {
   page = 1;
   pageSize = 16;
   totalPages = 0;
+  totalClients = 0;
 
   openModalFormClient = signal(false);
   
@@ -54,6 +55,7 @@ export class ClientsComponent implements OnInit {
       next: (res) => {
         this.clients = res.items;
         this.totalPages = Math.ceil(res.total / this.pageSize);
+        this.totalClients = res.total;
       },
     });
   }
@@ -65,6 +67,7 @@ export class ClientsComponent implements OnInit {
           this.clients.pop();
         }
         this.clients.unshift(res);
+        this.totalClients++;
       },
     });
   }
@@ -100,6 +103,7 @@ export class ClientsComponent implements OnInit {
         this.clients = this.clients.filter((client) => 
           client.id !== id
         )
+        this.totalClients--;
       },
     });
   }
