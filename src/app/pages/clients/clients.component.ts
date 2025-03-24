@@ -42,7 +42,7 @@ export class ClientsComponent implements OnInit {
   clientToEdit: WritableSignal<Client | null> = signal(null);
   clientToDelete: WritableSignal<{ id: number; name: string } | null> = signal(null);
 
-  actionsClientCard: CardClientAction[] = ['select', 'edit', 'delete'];
+  actionsClientCard: CardClientAction[] = ['delete', 'edit', 'select'];
 
   ngOnInit() {
     this.getClients();

@@ -2,7 +2,7 @@
 <span>Salário: {{ salary }}</span>
 <span>Empresa: {{ companyValue }}</span>
 
-<div class="acoes">
+<div class="actions">
   @for (actionButton of currentActionsButtons; track $index) {
     <button (click)="actionButton.eventEmitter.emit()">
       <img [src]="actionButton.srcImg" [alt]="actionButton.alt" />
