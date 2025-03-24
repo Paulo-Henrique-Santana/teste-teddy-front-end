@@ -61,6 +61,9 @@ export class ClientsComponent implements OnInit {
   onAddClient($event: Client) {
     this.clientService.create($event).subscribe({
       next: (res) => {
+        if (this.clients.length === this.pageSize) {
+          this.clients.pop();
+        }
         this.clients.unshift(res);
       },
     });
