@@ -1,6 +1,6 @@
 <span class="nome-cliente">{{ name }}</span>
-<span>Salário: {{ salary }}</span>
-<span>Empresa: {{ companyValue }}</span>
+<span>Salário: {{ salary.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</span>
+<span>Empresa: {{ companyValue.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</span>
 
 <div class="actions">
   @for (actionButton of currentActionsButtons; track $index) {
